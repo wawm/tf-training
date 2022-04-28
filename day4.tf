@@ -113,6 +113,9 @@ resource "azurerm_linux_virtual_machine" "azlan-lxvm" {
     password = azurerm_linux_virtual_machine.azlan-lxvm.admin_password
     host     = azurerm_public_ip.azlan-pubip.ip_address
   }
+  tags = {
+    environment = "staging"
+  }
 }
 output "publicip" {
   value = azurerm_public_ip.azlan-pubip.ip_address
