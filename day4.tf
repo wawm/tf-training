@@ -114,3 +114,6 @@ resource "azurerm_linux_virtual_machine" "azlan-lxvm" {
     host     = azurerm_public_ip.azlan-pubip.ip_address
   }
 }
+output "publicip" {
+  value = azurerm_public_ip.azlan-pubip.ip_address
+}
