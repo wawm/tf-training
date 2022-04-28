@@ -17,12 +17,18 @@ terraform {
 resource "azurerm_resource_group" "azlan-rg" {
   name     = "rg-west"
   location = "westus"
+  tags = {
+    environment = "staging"
+  }
 }
 resource "azurerm_virtual_network" "azlan-vnet" {
   name                = "azlan-vnet"
   address_space       = ["10.0.0.0/16"]
   resource_group_name = azurerm_resource_group.azlan-rg.name
   location            = azurerm_resource_group.azlan-rg.location
+  tags = {
+    environment = "staging"
+  }
 }
 resource "azurerm_subnet" "azlan-subnet1" {
   name                 = "azlan-subnet1"
